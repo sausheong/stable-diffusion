@@ -54,13 +54,13 @@ Install all the dependencies.
 I find that I need to install OpenCV separately through conda before it works, but your mileage might differ.
 
 ````
-$ conda install opencv
+(sd) $ conda install opencv
 ````
 
 If you're seeing errors like Failed building wheel for onnx you might need to install these packages:
 
 ````
-$ brew install Cmake protobuf rust
+(sd) $ brew install Cmake protobuf rust
 ````
 
 And that's it!
@@ -70,7 +70,7 @@ And that's it!
 Try running the `txt2img.py` script:
 
 ````
-$ python scripts/txt2img.py --prompt "astronaut riding a horse in photorealistic style"
+(sd) $ python scripts/txt2img.py --prompt "astronaut riding a horse in photorealistic style"
 ````
 
 You should get something like this in the `outputs/txt2img-samples/samples` directory.
@@ -82,8 +82,8 @@ You should get something like this in the `outputs/txt2img-samples/samples` dire
 I added in a simple webapp that will generate single images and display in a gallery together with the text prompts. To start the web app, go to the `webapp` directory and run the web app.
 
 ````
-$ cd webapp
-$ flask run
+(sd) $ cd webapp
+(sd) $ flask run
 ````
 
 Go to `http://localhost:5000/` and you should see a simple web app like this.
