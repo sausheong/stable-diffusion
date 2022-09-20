@@ -2,11 +2,13 @@
 
 This is a fork of the popular CompVis Stable-Diffusion repository, taken from @bfirsh's fork that was enabled for MacOS M series (M1, M2) machines, using Apple's Metal Performance Shaders (MPS). 
 
+The [original README is here](README.orig.md).
+
 I ran this on my M1 Pro MacBook Pro with 32GB of RAM and it generates 1 512x512 images in around 1.5 minutes.
 
 ## Deploying Stable Diffusion
 
-Here are the steps to deploy Stable Diffusion on your M1/M2 machine. I used Conda because that's what I'm used to but you can also use pip like @bfirsh.
+Here are the steps to deploy Stable Diffusion on your M1/M2 machine. I used conda because that's what I'm used to but you can also use pip like @bfirsh. If you're not sure how to use conda, you can [download it here](https://www.anaconda.com/products/distribution).
 
 ### Download the repository
 
