@@ -1,14 +1,17 @@
-# Stable Diffusion for Mac M series machines
-
-This is a fork of the popular CompVis Stable-Diffusion repository, taken from @bfirsh's fork that was enabled for MacOS M series (M1, M2) machines, using Apple's Metal Performance Shaders (MPS). 
+# Stable Diffusion for Mac M1/M2 machines
 
 The [original README is here](README.orig.md).
 
-I ran this on my M1 Pro MacBook Pro with 32GB of RAM and it generates 1 512x512 images in around 1.5 minutes.
+This is a fork of the popular [CompVis Stable-Diffusion repository](https://github.com/CompVis/stable-diffusion), taken from [@bfirsh's fork](https://github.com/bfirsh/stable-diffusion) that enabled Mac M1/M2 machines to run Stable Diffusion, using Apple's Metal Performance Shaders (MPS). @bfirsh has also written a [short post on how to deploy using his fork](https://replicate.com/blog/run-stable-diffusion-on-m1-mac). 
+
+I forked this out to play around with Stable Diffusion on my own machine and also built a minimal web app over it.
+
+![Screenshot of Stable Diffusion web app](screenshot.png)
+
 
 ## Deploying Stable Diffusion
 
-Here are the steps to deploy Stable Diffusion on your M1/M2 machine. I used conda because that's what I'm used to but you can also use pip like @bfirsh. If you're not sure how to use conda, you can [download it here](https://www.anaconda.com/products/distribution).
+Here are the steps to deploy Stable Diffusion on your M1/M2 machine. I used conda because that's what I'm used to but you can also use pip like @bfirsh. You can [download conda here](https://www.anaconda.com/products/distribution).
 
 ### Download the repository
 
@@ -42,7 +45,7 @@ $ conda activate sd
 
 ### Install the requirements
 
-Install all the dependencies.
+Install all the dependencies. 
 
 ````
 (sd) $ pip install -r requirements.txt
@@ -60,6 +63,8 @@ If you're seeing errors like Failed building wheel for onnx you might need to in
 $ brew install Cmake protobuf rust
 ````
 
+And that's it!
+
 ### Checking if the installation works
 
 Try running the `txt2img.py` script:
@@ -74,14 +79,15 @@ You should get something like this in the `outputs/txt2img-samples/samples` dire
 
 ## Stable Diffusion webapp
 
-I added in a simple webapp that will generate single images and display in a gallery together with the text prompts.
-
-![Screenshot to Stable Diffusion web app](screenshot.png)
-
-To start the web app, go to the `webapp` directory and run the web app.
+I added in a simple webapp that will generate single images and display in a gallery together with the text prompts. To start the web app, go to the `webapp` directory and run the web app.
 
 ````
 $ cd webapp
 $ flask run
 ````
 
+Go to `http://localhost:5000/` and you should see a simple web app like this.
+
+![Screenshot of Stable Diffusion web app](screenshot-empty.png)
+
+Have fun with the web app! I ran this on my M1 Pro MacBook Pro with 32GB of RAM and it generates 1 512x512 images in around 1.5 minutes.
