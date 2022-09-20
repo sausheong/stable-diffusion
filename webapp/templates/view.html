@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>stable-diffusion</title>      
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">
+            stable diffusion
+        </h1>
+        <div class="col-lg-12 mx-auto">
+          <p class="lead mb-4">{{ prompt }}</p>
+          <div class="justify-content-lg-center">
+            <img id="generated-img" src="/static/loading.gif" alt="...">
+            <div id="timer">
+              <span id="minutes"></span>:<span id="seconds"></span>
+            </div>
+          </div>
+          <div id="try-button" class="py-5 row invisible">
+            <span class="lead" id="timing"></span> 
+            <span><a class="btn btn-light" href="/">Back to home gallery</a></span>
+          </div>          
+        </div>                
+      </div>
+  </body>
+  <script type="text/javascript">
+    var sec = 0;
+    function pad ( val ) { return val > 9 ? val : "0" + val; }
+    timer = setInterval( function(){
+        $("#seconds").html(pad(++sec%60));
+        $("#minutes").html(pad(parseInt(sec/60,10)));
+    }, 1000);
+
+    check = setInterval(function() {
+      $.ajax({
+        url: "/static/generated/{{ id }}.png",
+        type:'HEAD',
+        success: function() {
+          $('#generated-img').attr('src', "/static/generated/{{ id }}.png");
+          $('#try-button').removeClass('invisible');
+          $('#timer').addClass('invisible');
+          $('#timing').text($('#minutes').text() + ':' + $('#seconds').text());
+          // stop timer
+          clearInterval(check);
+          clearInterval(timer);
+        },
+      });
+            
+    }, 5000);
+
+
+  </script>
+</html>
