@@ -91,3 +91,7 @@ Go to `http://localhost:5000/` and you should see a simple web app like this.
 ![Screenshot of Stable Diffusion web app](screenshot-empty.png)
 
 Have fun with the web app! I ran this on my M1 Pro MacBook Pro with 32GB of RAM and it generates 1 512x512 images in around 1.5 minutes.
+
+![Screenshot of Stable Diffusion web app](screenshot-after-generation.png)
+
+If you see black images or Rick, that's not a bug, it's because the model detected some potential NSFW images and returned that instead.
